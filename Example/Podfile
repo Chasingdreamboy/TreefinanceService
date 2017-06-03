@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TreefinanceService_Example' do
+  pod 'TreefinanceService', :path => '../'
+
+  target 'TreefinanceService_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  end
+end

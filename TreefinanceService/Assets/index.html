@@ -1,0 +1,62 @@
+<html>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+<style type="text/css">
+    #imgBig{
+        margin-top:60px;
+        width:165px;
+        height:94px;
+    }
+.imgSmall{
+    margin-top:10px;
+    width:240px;
+    height:20px;
+    
+}
+    div{
+    text-align:center;
+    }
+.button {
+    margin-top:20px;
+    width:280px;
+    height:40px;
+    background-color:#f5a623;
+    border-color:#f5a623;
+    border-radius:20px;
+    -webkit-border-radius: 20px;
+}
+</style>
+<script type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    function clickAction() {
+        window.open("gfdapp://");
+       var x = document.querySelector('.button');
+       x.disabled="disabled";
+       setTimeout(function(){
+                x.disabled = "enable";
+                  },2000);
+    }
+function changeStyle(colorString) {
+
+    console.log(colorString,'colorString');
+    x = document.querySelector('.button');
+    x.style.backgroundColor = colorString;
+    x.style.borderRadius = colorString;
+    
+}
+</script>
+</head>
+<body>
+    <div >
+        <img id="imgBig" src="./netlose.png" />
+    </div>
+    <div>
+        <div>
+            <p>网络异常，请重新尝试</p>
+        </div>
+        <div>
+    <button class="button" onclick="clickAction()"><font size='4.5' color='#ffffff'>轻触重连</font></button>
+    </div>
+    </body>
+</html>
