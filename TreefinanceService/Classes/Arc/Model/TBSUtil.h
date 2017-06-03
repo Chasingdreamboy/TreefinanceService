@@ -33,7 +33,7 @@
 @property(nonatomic,copy) void (^(getFingerPrintBlock))(NSError*,NSString*);
 +(NSString*)networktype;
 +(NSString*)getcarrierName;
-+(NSString*)idfa;
+//+(NSString*)idfa;
 +(NSString*)openUDID;
 +(NSString*)model;
 +(NSString*)detailModel;

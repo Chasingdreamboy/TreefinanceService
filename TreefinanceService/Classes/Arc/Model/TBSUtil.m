@@ -136,9 +136,9 @@
     return [NSString stringWithFormat:@"%@%@",[carrier mobileCountryCode],[carrier mobileNetworkCode]];
 }
 
-+(NSString*)idfa{
-    return [[[ASIdentifierManager sharedManager]advertisingIdentifier]UUIDString];
-}
+//+(NSString*)idfa{
+//    return [[[ASIdentifierManager sharedManager]advertisingIdentifier]UUIDString];
+//}
 +(NSString*)openUDID{
     return [OpenUDID value];
 }
@@ -310,10 +310,6 @@
     NSString *netModel = [self networktype];
     if (netModel) {
         [deviceDic setObject:netModel forKey:@"netModel"];
-    }
-    NSString *idfa = [self idfa];
-    if (idfa) {
-        [deviceDic setObject:idfa forKey:@"idfa"];
     }
     NSString *openudid = [self openUDID];
     if (openudid) {
@@ -488,7 +484,7 @@
     [params setObject:@"1" forKey:@"platformId"];
     [params setObject:[TBSUtil isj]?@(1):@(0) forKey:@"flag"];//是否越狱
     [params setObject:[TBSUtil RSAEncript:[[TBSUtil chkApps] tbs_json]] forKey:@"appInfo"];//应用信息
-    [params setObject:[TBSUtil idfa] forKey:@"deviceKey"];
+//    [params setObject:[TBSUtil idfa] forKey:@"deviceKey"];
     [[TBSJSONUtil sharedInstance] getJSONAsync:GET_SERVICE(@"/appInfo/upload") withData:params method:@"POST" success:^(NSDictionary *data) {
         NSLog(@"step:%@ 上传app信息成功",step);
     } error:^(NSError *error, id responseData) {
@@ -550,10 +546,6 @@
 }
 + (NSDictionary *)getAllParams {
     NSMutableDictionary* params=[NSMutableDictionary dictionary];
-//    NSString *userId = DS_GET(userIdKey);
-//    if (userId) {
-//        [params setObject:userId forKey:@"userid"];
-//    }
     [params setObject:@"App Store" forKey:@"channelsource"];//SDK没用
     [params setObject:@"1" forKey:@"platformid"];//ios=1,android=0
     [params setObject:[self model] forKey:@"phonebrand"];//手机品牌，iPhone，iPad
@@ -584,10 +576,6 @@
         [params setObject:networkType forKey:@"netmodel"]; //网络类型 WIFI 4G
     }
     [params setObject:@([self isj]) forKey:@"isjailbreak"]; //是否越狱
-    NSString *idfa = [self idfa];
-    if (idfa) {
-        [params setObject:idfa forKey:@"idfa"]; //idfa
-    }
     NSString *udid = [self openUDID];
     if (udid) {
         [params setObject:udid forKey:@"openudid"];//openudid
