@@ -109,7 +109,14 @@
     
 //    if(!(_numberOfUrlRequests > 0)) {
         if(![[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"typeof %@ == 'object'",JS_BRIDGE]] isEqualToString:@"true"]) {
-            NSBundle *bundle = _resourceBundle ?: [TBSHelper bundle];
+            NSBundle *bundle = nil;
+            if (_resourceBundle) {
+                bundle = _resourceBundle;
+                NSLog(@"bundle Exist");
+            } else {
+                NSLog(@"bundle Exist not");
+                bundle = [TBSHelper bundle];
+            }
             NSString *filePath = [bundle pathForResource:JS_BRIDGE_FILE_NAME ofType:@"js"];
             NSLog(@"filePath = %@",filePath );
             NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
