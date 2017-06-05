@@ -10,7 +10,6 @@
 #import "RKDropdownAlert.h"
 #import <UIKit/UIKit.h>
 #import "TBSWebViewController.h"
-//#import "MBProgressHUD.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "TBSJSONUtil.h"
 #import "TBSEnteranceController.h"
@@ -20,12 +19,6 @@
 #import "Header.h"
 
 @interface TreefinanceService(){
-    BOOL isHidden;
-    NSDictionary *attributes;
-    UIColor *barTintColor;
-    UIColor *tintColor;
-    NSArray *gestures;
-    UIBarStyle barStyle;
     
     
     UIViewController *rootController;
